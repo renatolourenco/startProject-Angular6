@@ -16,7 +16,8 @@ export class AuthGuard implements CanActivate {
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot): Observable<boolean> | boolean {
 
-        if (this.dataService.getCookie() != '') {
+        if (this.dataService.getCookie() !== '') {
+            console.log('Login ok');
             return true;
         } else {
             console.log('Error 401');

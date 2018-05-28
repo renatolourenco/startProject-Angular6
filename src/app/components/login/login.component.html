@@ -1,3 +1,9 @@
-<p>
-  login works!
-</p>
+<form (ngSubmit)="onSubmit()" [formGroup]="dataLogin">
+  <div class="form-group">
+    <input type="text" class="form-control" formControlName="login" placeholder="Usuário">
+  </div>
+  <div class="form-group">
+    <input type="password" class="form-control" formControlName="senha" placeholder="Senha">
+  </div>
+  <button type="submit" class="btn btn-primary">Entrar</button>
+</form>

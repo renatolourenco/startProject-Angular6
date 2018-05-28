@@ -13,12 +13,17 @@ export class DataService {
     const expiresValue: Date = new Date(today);
     expiresValue.setMinutes(today.getMinutes() + 5);
 
-    this.cookieService.set('anything', anything, expiresValue);
+    this.cookieService.set('userData', anything, expiresValue);
   }
 
   getCookie() {
-    console.log(this.cookieService.get('anything'));
-    return this.cookieService.get('anything');
+    let cookie = this.cookieService.get('userData');
+    if (cookie !== '') {
+      this.setCookie(cookie);
+      cookie = JSON.parse(this.cookieService.get('userData'));
+    }
+    console.log(cookie);
+    return cookie;
   }
 
 }
